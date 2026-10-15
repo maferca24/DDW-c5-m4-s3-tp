@@ -1,6 +1,6 @@
 import useLocalStorage from "./useLocalStorage";
 
-const CLAVE_LISTA = "recetasSinTacc:lista";
+const CLAVE_LISTA = "productosSinTacc:lista";
 
 export function useRecetasList() {
   const [lista, setLista] = useLocalStorage(CLAVE_LISTA, []);

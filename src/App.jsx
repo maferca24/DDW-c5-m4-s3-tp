@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import recetasSintacc from "./data/recetasSintacc.json";
+import productosSinTacc from "./data/productosSinTacc.json";
 
 import { Navbar } from "./components/Navbar";
 import { SearchBar } from "./components/SearchBar";
@@ -14,7 +14,7 @@ const { list, total, toggle, clear } = useRecetasList();
 const [mostrarPanel, setMostrarPanel] = useToggle(false);//determina si el panel de recetas esta abierto o <cerrado>
 const [busqueda, setBusqueda] = useState("");// guarda la busqueda y actualiza
 
-const recetasFiltradas = recetasSintacc.filter((item) =>
+const recetasFiltradas = productosSinTacc.filter((item) =>
     item.nombre.toLowerCase().includes(busqueda.toLowerCase().trim())
   );
 

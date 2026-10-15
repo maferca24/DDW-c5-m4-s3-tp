@@ -1,5 +1,5 @@
 //grilla de resultados
-import { ItemCard } from './ItemCard';
+import { ProductoCard } from './ProductoCard';
 //item array de recetas filtradas
 //lista array de recetas para verificar si esta agregada o no
 //onToggle funcion para agregar/quitar recetas
@@ -19,12 +19,12 @@ export function ItemList({ items, lista, onToggle, busqueda }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4 max-w-6xl mx-auto pb-12">
       {items.map((item) => {
-     //para renderizar cada ItemCard
+     //para renderizar cada ProductoCard
      //comprueba si el id de la receta actual existe en el array lista
         const isInList = lista.some((i) => i.id === item.id);
 
         return (
-          <ItemCard
+          <ProductoCard
             key={item.id}
             item={item}
             onToggle={onToggle}

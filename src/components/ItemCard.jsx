@@ -1,8 +1,8 @@
-//item(cada receta:nombre,categoria,tiempo prep, aptov, id)
+//item(cada producto:nombre,precio, stock, destacado, id)
 //onToogle fcion que viene desde app pasando por ItemList, al ejecutarse
 //envia el objeto item para agregarlo o quitarlo de la lista
 //osInList calculado en ItemList para saber si la receta esta guardada
-export function ItemCard({ item, onToggle, isInList }) {
+export function ProductoCard({ item, onToggle, isInList }) {
   return (
    
     <article className="bg-[var(--color-surface)] border-2 border-[var(--color-border-card)] rounded-xl p-5 shadow-xs flex flex-col justify-between h-full hover:shadow-md transition-shadow">
@@ -15,7 +15,7 @@ export function ItemCard({ item, onToggle, isInList }) {
           
           {item.destacado && (
             <span className="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded-md">
-              🌱 APTO VEGANO
+              DESTACADO
             </span>
           )}
         </div>
@@ -23,7 +23,8 @@ export function ItemCard({ item, onToggle, isInList }) {
         <h3 className="text-base font-semibold text-[var(--color-on-surface)] mb-1">
           {item.nombre}
         </h3>
-        <p className="text-xs text-[var(--color-on-surface-variant)] mb-4">⏱️ {item.tiempoPreparacion}</p>
+
+        <p className="text-xs text-[var(--color-on-surface-variant)] mb-4">⏱️ {item.precio}</p>
       </div>
 
       {/* Botón primario en naranja */}

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 
-const CLAVE_TEMA = "recetasSinTacc:tema";
+const CLAVE_TEMA = "productosSinTacc:tema";
 
 const ThemeSwitcher = () => {
   const [modoOscuro, setModoOscuro] = useLocalStorage(CLAVE_TEMA, false);
