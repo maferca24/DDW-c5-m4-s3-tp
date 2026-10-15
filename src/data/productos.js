@@ -5,7 +5,7 @@ export const productosSinTacc = [
     categoria: "Harinas y Premezclas",
     precio: 4500,
     stock: 25,
-    aptoVegano: true
+    destacado: true
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const productosSinTacc = [
     categoria: "Snacks y Galletitas",
     precio: 2200,
     stock: 40,
-    aptoVegano: false
+    destacado: false
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export const productosSinTacc = [
     categoria: "Panadería",
     precio: 3800,
     stock: 12,
-    aptoVegano: true
+    destacado: true
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ export const productosSinTacc = [
     categoria: "Pastas",
     precio: 2900,
     stock: 30,
-    aptoVegano: true
+    destacado: true
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ export const productosSinTacc = [
     categoria: "Golosinas y Repostería",
     precio: 1500,
     stock: 50,
-    aptoVegano: false
+    destacado: false
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ export const productosSinTacc = [
     categoria: "Harinas y Frutos Secos",
     precio: 8900,
     stock: 15,
-    aptoVegano: true
+    destacado: true
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ export const productosSinTacc = [
     categoria: "Harinas Alternativas",
     precio: 5200,
     stock: 20,
-    aptoVegano: true
+    destacado: true
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ export const productosSinTacc = [
     categoria: "Harinas Alternativas",
     precio: 3400,
     stock: 18,
-    aptoVegano: true
+    destacado: true
   },
   {
     id: 9,
@@ -69,7 +69,7 @@ export const productosSinTacc = [
     categoria: "Aceites y Condimentos",
     precio: 6500,
     stock: 35,
-    aptoVegano: true
+    destacado: true
   },
   {
     id: 10,
@@ -77,7 +77,7 @@ export const productosSinTacc = [
     categoria: "Aditivos y Esencias",
     precio: 4200,
     stock: 22,
-    aptoVegano: true
+    destacado: true
   },
   {
     id: 11,
@@ -85,7 +85,7 @@ export const productosSinTacc = [
     categoria: "Aditivos y Esencias",
     precio: 2100,
     stock: 45,
-    aptoVegano: true
+    destacado: true
   },
   {
     id: 12,
@@ -93,7 +93,7 @@ export const productosSinTacc = [
     categoria: "Almidones y Féculas",
     precio: 2800,
     stock: 30,
-    aptoVegano: true
+    destacado: true
   },
   {
     id: 13,
@@ -101,7 +101,7 @@ export const productosSinTacc = [
     categoria: "Almidones y Féculas",
     precio: 1900,
     stock: 60,
-    aptoVegano: true
+    destacado: true
   },
   {
     id: 14,
@@ -109,7 +109,7 @@ export const productosSinTacc = [
     categoria: "Almidones y Féculas",
     precio: 3100,
     stock: 25,
-    aptoVegano: true
+    destacado: true
   },
   {
     id: 15,
@@ -117,7 +117,7 @@ export const productosSinTacc = [
     categoria: "Aditivos y Esencias",
     precio: 2400,
     stock: 28,
-    aptoVegano: true
+    destacado: true
   },
   {
     id: 16,
@@ -125,7 +125,7 @@ export const productosSinTacc = [
     categoria: "Harinas Alternativas",
     precio: 2600,
     stock: 20,
-    aptoVegano: true
+    destacado: true
   },
   {
     id: 17,
@@ -133,7 +133,7 @@ export const productosSinTacc = [
     categoria: "Azúcares y Edulcorantes",
     precio: 3500,
     stock: 40,
-    aptoVegano: true
+    destacado: true
   },
   {
     id: 18,
@@ -141,7 +141,7 @@ export const productosSinTacc = [
     categoria: "Repostería",
     precio: 4100,
     stock: 25,
-    aptoVegano: true
+    destacado: true
   },
   {
     id: 19,
@@ -149,7 +149,7 @@ export const productosSinTacc = [
     categoria: "Repostería",
     precio: 3300,
     stock: 35,
-    aptoVegano: true
+    destacado: true
   },
   {
     id: 20,
@@ -157,6 +157,6 @@ export const productosSinTacc = [
     categoria: "Semillas y Cereales",
     precio: 1800,
     stock: 50,
-    aptoVegano: true
+    destacado: true
   }
 ];

@@ -13,7 +13,7 @@ export function ItemCard({ item, onToggle, isInList }) {
             {item.categoria}
           </span>
           
-          {item.aptoVegano && (
+          {item.destacado && (
             <span className="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded-md">
               🌱 APTO VEGANO
             </span>
