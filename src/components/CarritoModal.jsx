@@ -1,12 +1,17 @@
-export function ListPanel({ lista, onToggle, onVaciar, onClose }) {
+import React from 'react';
+
+export function CarritoModal({ lista, onToggle, onVaciar, onClose }) {
+  // Calculamos el precio total acumulado del carrito
+  const totalPrecio = lista.reduce((acc, item) => acc + item.precio, 0);
+
   return (
     <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex justify-end">
       <aside className="w-full max-w-md bg-[var(--color-surface)] h-full shadow-2xl flex flex-col p-6 transition-colors">
         
-        {/* Cabecera del Panel */}
+        {/* Cabecera del Carrito */}
         <div className="flex justify-between items-center pb-4 border-b border-[var(--color-border-card)]">
           <h2 className="text-lg font-bold text-[var(--color-on-surface)]">
-            Mi Lista Seleccionada
+            🛒 Mi Carrito de Compras
           </h2>
           <button
             onClick={onClose}
@@ -16,25 +21,25 @@ export function ListPanel({ lista, onToggle, onVaciar, onClose }) {
           </button>
         </div>
 
-        {/* Contenido / Lista */}
+        {/* Contenido / Lista de productos */}
         <div className="flex-1 overflow-y-auto py-4">
           {lista.length === 0 ? (
             <div className="text-center py-12 px-2 text-[var(--color-on-surface-variant)]">
-              <p className="text-sm">Todavía no agregaste nada, buscá algo arriba 👆</p>
+              <p className="text-sm">El carrito está vacío. ¡Agrega algunos productos! 🛒</p>
             </div>
           ) : (
             <>
-              {/* Botón para vaciar lista */}
+              {/* Botón para vaciar carrito */}
               <div className="flex justify-end mb-4">
                 <button
                   onClick={onVaciar}
                   className="text-xs font-semibold text-red-500 hover:text-red-400 dark:hover:bg-red-950/30 hover:bg-red-50 px-3 py-1.5 rounded-lg border border-red-400/40 cursor-pointer transition-colors"
                 >
-                  🗑️ Vaciar mi lista de Recetas
+                  🗑️ Vaciar Carrito
                 </button>
               </div>
 
-              {/* Items de la Lista */}
+              {/* Items del Carrito */}
               <ul className="space-y-3">
                 {lista.map((item) => (
                   <li
@@ -45,8 +50,8 @@ export function ListPanel({ lista, onToggle, onVaciar, onClose }) {
                       <h4 className="text-sm font-semibold text-[var(--color-on-surface)]">
                         {item.nombre}
                       </h4>
-                      <span className="text-xs text-[var(--color-on-surface-variant)]">
-                        {item.categoria}
+                      <span className="text-xs font-bold text-emerald-600">
+                        ${item.precio.toLocaleString()}
                       </span>
                     </div>
 
@@ -62,6 +67,19 @@ export function ListPanel({ lista, onToggle, onVaciar, onClose }) {
             </>
           )}
         </div>
+
+        {/* Pie del Carrito (Subtotal y Total) */}
+        {lista.length > 0 && (
+          <div className="pt-4 border-t border-[var(--color-border-card)] space-y-3">
+            <div className="flex justify-between items-center font-bold text-base text-[var(--color-on-surface)]">
+              <span>Total:</span>
+              <span className="text-emerald-600">${totalPrecio.toLocaleString()}</span>
+            </div>
+            <button className="w-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white font-semibold py-2.5 rounded-lg transition-colors text-sm shadow-xs">
+              Iniciar Compra / Checkout
+            </button>
+          </div>
+        )}
 
       </aside>
     </div>

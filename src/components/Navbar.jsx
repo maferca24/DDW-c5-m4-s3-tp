@@ -14,7 +14,7 @@ export function Navbar({ listCount, onOpenPanel }) {
             className="w-10 h-auto"
           />
           <span className="font-display font-bold text-[var(--color-primary)] text-base leading-tight hidden sm:block">
-            Recetas sin TACC
+            Productos sin TACC
           </span>
         </div>
 
@@ -23,12 +23,12 @@ export function Navbar({ listCount, onOpenPanel }) {
           {/* Botón de cambio de tema */}
           <ThemeSwitcher />
 
-          {/* Botón Mi Lista */}
+          {/* Carrito*/}
           <button
             onClick={onOpenPanel}
             className="relative px-4 py-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white text-sm font-semibold rounded-lg transition-colors flex items-center gap-2 cursor-pointer shadow-xs"
           >
-            📋 Mi Lista
+            📋 Mi Carrito
             {listCount > 0 && (
               <span className="bg-[var(--color-surface)] text-[var(--color-primary)] text-xs font-bold px-2 py-0.5 rounded-full">
                 {listCount}

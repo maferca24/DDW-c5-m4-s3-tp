@@ -1,4 +1,4 @@
-export const productosSinTacc = [
+export const productos = [
   {
     id: 1,
     nombre: "Premezcla Universal Sin TACC 1kg",

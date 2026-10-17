@@ -1,31 +1,31 @@
 import { useState, useEffect } from "react";
-import productosSinTacc from "./data/productosSinTacc.json";
+import { productos } from "./data/productos.js";
 
 import { Navbar } from "./components/Navbar";
 import { SearchBar } from "./components/SearchBar";
-import { ItemList } from "./components/ItemList";
-import { ListPanel } from "./components/ListPanel";
+import { ProductoList } from "./components/ProductoList";
+import { CarritoModal } from "./components/CarritoModal";
 
 import useToggle from "./hooks/useToogle";
-import useRecetasList from "./hooks/useRecetasList";
+import useProductosList from "./hooks/useProductosList.js";
 
 export default function App() {
-const { list, total, toggle, clear } = useRecetasList();
-const [mostrarPanel, setMostrarPanel] = useToggle(false);//determina si el panel de recetas esta abierto o <cerrado>
-const [busqueda, setBusqueda] = useState("");// guarda la busqueda y actualiza
+  const { list, total, toggle, clear } = useProductosList();
+  const [mostrarPanel, setMostrarPanel] = useToggle(false);//determina si el carrito esta abierto o <cerrado>
+  const [busqueda, setBusqueda] = useState("");// guarda la busqueda y actualiza
 
-const recetasFiltradas = productosSinTacc.filter((item) =>
+  const productosFiltrados = productos.filter((item) =>
     item.nombre.toLowerCase().includes(busqueda.toLowerCase().trim())
   );
 
-//useEffect para título de la ventana
-useEffect(() => {
-    const nombreApp = "Recetas Sin TACC";
-    document.title= total >0?  `Mi lista (${total}) | ${nombreApp}` : nombreApp;
+  //useEffect para título de la ventana
+  useEffect(() => {
+    const nombreApp = "Productos Sin TACC";
+    document.title = total > 0 ? `Mi lista (${total}) | ${nombreApp}` : nombreApp;
   }, [total]);
-    
+
   return (
-<div className="min-h-screen bg-[var(--color-background)] text-[var(--color-on-surface)] transition-colors flex flex-col"> 
+    <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-on-surface)] transition-colors flex flex-col">
       <Navbar
         listCount={total}
         onOpenPanel={setMostrarPanel}
@@ -37,8 +37,8 @@ useEffect(() => {
           setSearchTerm={setBusqueda}
         />
 
-        <ItemList
-          items={recetasFiltradas}
+        <ProductoList
+          items={productosFiltrados}
           lista={list}
           onToggle={toggle}
           busqueda={busqueda}
@@ -47,11 +47,11 @@ useEffect(() => {
 
       {/* Renderizado condicional del modal */}
       {mostrarPanel && (
-        <ListPanel
+        <CarritoModal
           lista={list}
           onToggle={toggle}
-          onVaciar={clear} // Le pasamos la función al panel
-          onClose={setMostrarPanel}
+          onVaciar={clear}
+          onClose={() => setMostrarPanel(false)}
         />
       )}
     </div>

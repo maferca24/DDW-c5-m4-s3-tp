@@ -1,8 +1,8 @@
 import useLocalStorage from "./useLocalStorage";
 
-const CLAVE_LISTA = "productosSinTacc:lista";
+const CLAVE_LISTA = "productos:lista";
 
-export function useRecetasList() {
+export function useProductosList() {
   const [lista, setLista] = useLocalStorage(CLAVE_LISTA, []);
 
   const total = lista.length;
@@ -25,7 +25,7 @@ export function useRecetasList() {
   const clear = () => {
     if (lista.length === 0) return;
     
-    if (window.confirm("¿Vaciar la lista de recetas?")) {
+    if (window.confirm("¿Vaciar carrito?")) {
       setLista([]);
     }
   };
@@ -40,4 +40,4 @@ export function useRecetasList() {
   };
 }
 
-export default useRecetasList;
+export default useProductosList;
