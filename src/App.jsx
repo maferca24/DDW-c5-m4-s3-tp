@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { productos } from "./data/productos.js";
 
-import { Navbar } from "./components/Navbar";
+import { Navbar } from "./components/layout/Navbar.jsx";
 import { SearchBar } from "./components/SearchBar";
 import { ProductoList } from "./components/ProductoList";
 import { CarritoModal } from "./components/CarritoModal";
