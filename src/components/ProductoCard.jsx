@@ -1,3 +1,4 @@
+import { formatearPrecio } from "../utils/formato";
 export function ProductoCard({ item, onToggle, isInList }) {
   return (
     <article className="bg-[var(--color-surface)] border-2 border-[var(--color-border-card)] rounded-xl p-5 shadow-xs flex flex-col justify-between h-full hover:shadow-md transition-shadow">
@@ -18,9 +19,9 @@ export function ProductoCard({ item, onToggle, isInList }) {
           {item.nombre}
         </h3>
 
-        {/* Precio adaptado (cambiamos el relojito y agregamos el $) */}
+        {/* Aplique funcion formatear precio*/}
         <p className="text-sm font-bold text-emerald-700 mb-2">
-          ${item.precio.toLocaleString()}
+          {formatearPrecio(item.precio)}
         </p>
 
         {/* Opcional: puedes mostrar el stock si te gusta */}

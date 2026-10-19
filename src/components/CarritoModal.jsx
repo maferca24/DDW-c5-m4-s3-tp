@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatearPrecio } from '../utils/formato';
 
 export function CarritoModal({ lista, onToggle, onVaciar, onClose }) {
   // Calculamos el precio total acumulado del carrito
@@ -51,7 +52,7 @@ export function CarritoModal({ lista, onToggle, onVaciar, onClose }) {
                         {item.nombre}
                       </h4>
                       <span className="text-xs font-bold text-emerald-600">
-                        ${item.precio.toLocaleString()}
+                        {formatearPrecio(item.precio)}
                       </span>
                     </div>
 
@@ -73,7 +74,7 @@ export function CarritoModal({ lista, onToggle, onVaciar, onClose }) {
           <div className="pt-4 border-t border-[var(--color-border-card)] space-y-3">
             <div className="flex justify-between items-center font-bold text-base text-[var(--color-on-surface)]">
               <span>Total:</span>
-              <span className="text-emerald-600">${totalPrecio.toLocaleString()}</span>
+              <span className="text-emerald-600">{formatearPrecio(totalPrecio)}</span>
             </div>
             <button className="w-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white font-semibold py-2.5 rounded-lg transition-colors text-sm shadow-xs">
               Iniciar Compra / Checkout
