@@ -1,14 +1,14 @@
 import React from 'react';
 import { formatearPrecio } from '../utils/formato';
 
-export function CarritoModal({ lista, onToggle, onVaciar, onClose }) {
+export function CarritoModal({ lista, onToggle, onVaciar, onClose, onIrACheckout }) {
   // Calculamos el precio total acumulado del carrito
   const totalPrecio = lista.reduce((acc, item) => acc + item.precio, 0);
 
   return (
     <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex justify-end">
       <aside className="w-full max-w-md bg-[var(--color-surface)] h-full shadow-2xl flex flex-col p-6 transition-colors">
-        
+
         {/* Cabecera del Carrito */}
         <div className="flex justify-between items-center pb-4 border-b border-[var(--color-border-card)]">
           <h2 className="text-lg font-bold text-[var(--color-on-surface)]">
@@ -76,7 +76,10 @@ export function CarritoModal({ lista, onToggle, onVaciar, onClose }) {
               <span>Total:</span>
               <span className="text-emerald-600">{formatearPrecio(totalPrecio)}</span>
             </div>
-            <button className="w-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white font-semibold py-2.5 rounded-lg transition-colors text-sm shadow-xs">
+            <button
+              onClick={onIrACheckout} //  Ejecuta la función que cambia la vista
+              className="w-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white font-semibold py-2.5 rounded-lg transition-colors text-sm shadow-xs cursor-pointer"
+            >
               Iniciar Compra / Checkout
             </button>
           </div>

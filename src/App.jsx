@@ -15,29 +15,29 @@ import { useState } from "react";
 export default function App() {
   const { list, total, toggle, clear } = useProductosList();
   const [mostrarPanel, setMostrarPanel] = useToggle(false);//determina si el carrito esta abierto o <cerrado>
-  
+
   //Estado para controlar las vistas
   const [vistaActual, setVistaActual] = useState(VISTAS.TIENDA)
-  
+
   //Renderiza la vista según el estado
-  const renderVista = ()=>{
+  const renderVista = () => {
     switch (vistaActual) {
       case VISTAS.CHECKOUT:
         return (
-          <Checkout     
+          <Checkout
           />
         );
       case VISTAS.CONFIRMACION:
         return (
-          <Confirmacion/>
+          <Confirmacion />
         )
       case VISTAS.TIENDA:
-        default:
-          return <Tienda list={list} toggle={toggle}/>  
+      default:
+        return <Tienda list={list} toggle={toggle} />
     }
   }
 
-    return (
+  return (
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-on-surface)] transition-colors flex flex-col">
       <Navbar
         listCount={total}
@@ -57,6 +57,10 @@ export default function App() {
           onToggle={toggle}
           onVaciar={clear}
           onClose={() => setMostrarPanel(false)}
+          onIrACheckout={() => {
+            setMostrarPanel(false); // Cerramos el modal del carrito
+            setVistaActual(VISTAS.CHECKOUT); // Cambiamos la vista a Checkout
+          }}
         />
       )}
     </div>
