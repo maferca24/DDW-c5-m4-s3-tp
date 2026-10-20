@@ -1,1 +1,5 @@
-export const VISTAS = { TIENDA: 'tienda', CHECKOUT: 'checkout', CONFIRMACION: 'confirmacion' };
+export const VISTAS = { 
+    TIENDA: 'tienda', 
+    CHECKOUT: 'checkout', 
+    CONFIRMACION: 'confirmacion' 
+};

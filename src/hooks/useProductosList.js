@@ -9,12 +9,12 @@ export function useProductosList() {
 
   const estaEnLista = (id) => lista.some((item) => item.id === id);
 
-  const toggle = (receta) => {
+  const toggle = (producto) => {
     setLista((prev) => {
-      const yaEsta = prev.some((item) => item.id === receta.id);
+      const yaEsta = prev.some((item) => item.id === producto.id);
       return yaEsta
-        ? prev.filter((item) => item.id !== receta.id)
-        : [...prev, receta];
+        ? prev.filter((item) => item.id !== producto.id)
+        : [...prev, producto];
     });
   };
 
