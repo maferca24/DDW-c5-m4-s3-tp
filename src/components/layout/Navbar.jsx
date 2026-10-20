@@ -1,13 +1,16 @@
 import logoSingluten from '../../assets/trigo.png';
 import ThemeSwitcher from '../ThemeSwitcher';
+import { VISTAS } from '../../data/vistas';
 
-export function Navbar({ listCount, onOpenPanel }) {
+export function Navbar({ listCount, onOpenPanel, setVistaActual }) {
   return (
     <header className="sticky top-0 z-10 bg-[var(--color-surface)]  border-b border-[var(--color-border-card)] transition-colors shadow-xs">    
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        
-        {/* Marca / Logo */}
-        <div className="flex items-center gap-3">
+         {/* Marca / Logo Al hacer clic, vuelve a la tienda usando la constante VISTAS.TIENDA) */}
+        <div onClick={() => setVistaActual(VISTAS.TIENDA)} 
+          className="flex items-center gap-3 cursor-pointer group"
+          title="Ir al inicio"
+        >
           <img
             src={logoSingluten}
             alt="Logo Sin TACC"
