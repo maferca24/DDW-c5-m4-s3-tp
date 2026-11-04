@@ -17,7 +17,10 @@ export default function App() {
   const [mostrarPanel, setMostrarPanel] = useToggle(false);//determina si el carrito esta abierto o <cerrado>
 
   //Estado para controlar las vistas
-  const [vistaActual, setVistaActual] = useState(VISTAS.TIENDA)
+  const [vistaActual, setVistaActual] = useState(VISTAS.TIENDA);
+
+  // Nombre del comprador confirmado, se obtiene al finalizar el checkout
+  const [nombreComprador, setNombreComprador] = useState("");
 
   //Renderiza la vista según el estado
   const renderVista = () => {
@@ -25,11 +28,16 @@ export default function App() {
       case VISTAS.CHECKOUT:
         return (
           <Checkout
+            setVistaActual={setVistaActual}
+            setNombreComprador={setNombreComprador}
           />
         );
       case VISTAS.CONFIRMACION:
         return (
-          <Confirmacion />
+          <Confirmacion
+            nombreComprador={nombreComprador}
+            setVistaActual={setVistaActual}
+          />
         )
       case VISTAS.TIENDA:
       default:

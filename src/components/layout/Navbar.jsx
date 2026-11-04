@@ -3,10 +3,10 @@ import ThemeSwitcher from '../ThemeSwitcher';
 import { VISTAS } from '../../data/vistas';
 import { useCarritoContext } from '../../context/CarritoContext'; // <--Importamos el hook
 
-export function Navbar({ onOpenPanel, setVistaActual }) { // <-- Ya no necesitamos recibir listCount por props
+export function Navbar({ onOpenPanel, setVistaActual }) { // <-- Sin listCount por props-no la necesitamos
   const { carrito } = useCarritoContext(); // <-- Obtenemos el carrito del contexto
 
-  // 3. Calculamos la cantidad total de ítems 
+  //Calculamos la cantidad total de ítems 
   const cantidadTotal = carrito.reduce((acc, item) => acc + item.cantidad, 0);
 
   return (
