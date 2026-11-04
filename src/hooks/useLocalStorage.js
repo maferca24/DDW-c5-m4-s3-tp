@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function useLocalStorage(clave, valorInicial) {
+export function useLocalStorage(clave, valorInicial) {
   const [valor, setValor] = useState(() => {
     try {
       const guardado = localStorage.getItem(clave);
@@ -21,4 +21,3 @@ function useLocalStorage(clave, valorInicial) {
   return [valor, setValor];
 }
 
-export default useLocalStorage;

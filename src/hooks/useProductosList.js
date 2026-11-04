@@ -1,4 +1,4 @@
-import useLocalStorage from "./useLocalStorage";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const CLAVE_LISTA = "productos:lista";
 

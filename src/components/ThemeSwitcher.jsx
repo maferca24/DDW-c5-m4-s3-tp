@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import useLocalStorage from "../hooks/useLocalStorage";
+
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const CLAVE_TEMA = "productosSinTacc:tema";
 
