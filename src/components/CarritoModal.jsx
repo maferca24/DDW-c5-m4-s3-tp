@@ -62,7 +62,7 @@ export function CarritoModal({ onClose, onIrACheckout }) {
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => cambiarCantidad(item.id, -1)}
-                        className="w-7 h-7 bg-gray-200 dark:bg-zinc-700 text-[var(--color-on-surface)] font-bold rounded flex items-center justify-center hover:opacity-85 cursor-pointer"
+                        className="w-7 h-7 bg-[var(--color-primary)] text-white font-bold rounded flex items-center justify-center hover:opacity-90 transition-opacity cursor-pointer shadow-xs"
                         title="Disminuir cantidad"
                       >
                         -
@@ -72,7 +72,7 @@ export function CarritoModal({ onClose, onIrACheckout }) {
                       </span>
                       <button
                         onClick={() => cambiarCantidad(item.id, 1)}
-                        className="w-7 h-7 bg-gray-200 dark:bg-zinc-700 text-[var(--color-on-surface)] font-bold rounded flex items-center justify-center hover:opacity-85 cursor-pointer"
+                        className="w-7 h-7 bg-[var(--color-primary)] text-white font-bold rounded flex items-center justify-center hover:opacity-90 transition-opacity cursor-pointer shadow-xs"
                         title="Aumentar cantidad"
                       >
                         +
