@@ -1,19 +1,21 @@
 import logoSingluten from '../../assets/trigo.png';
-import ThemeSwitcher from '../ThemeSwitcher';
 import { VISTAS } from '../../data/vistas';
-import { useCarritoContext } from '../../context/CarritoContext'; // <--Importamos el hook
+import { useCarritoContext } from '../../context/CarritoContext';
+import { useThemeContext } from '../../context/ThemeContext';
 
-export function Navbar({ onOpenPanel, setVistaActual }) { // <-- Sin listCount por props-no la necesitamos
-  const { carrito } = useCarritoContext(); // <-- Obtenemos el carrito del contexto
+export function Navbar({ onOpenPanel, setVistaActual }) {
+  const { carrito } = useCarritoContext();
+  const { isDarkMode, toggleTheme } = useThemeContext();
 
-  //Calculamos la cantidad total de ítems 
   const cantidadTotal = carrito.reduce((acc, item) => acc + item.cantidad, 0);
 
   return (
-    <header className="sticky top-0 z-10 bg-[var(--color-surface)] border-b border-[var(--color-border-card)] transition-colors shadow-xs">    
+    <header className="sticky top-0 z-10 bg-[var(--color-surface)] border-b border-[var(--color-border-card)] transition-colors shadow-xs">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-         {/* Marca / Logo */}
-        <div onClick={() => setVistaActual(VISTAS.TIENDA)} 
+
+        {/* Marca / Logo */}
+        <div
+          onClick={() => setVistaActual(VISTAS.TIENDA)}
           className="flex items-center gap-3 cursor-pointer group"
           title="Ir al inicio"
         >
@@ -29,10 +31,18 @@ export function Navbar({ onOpenPanel, setVistaActual }) { // <-- Sin listCount p
 
         {/* Acciones del Header */}
         <div className="flex items-center gap-3">
-          {/* Botón de cambio de tema */}
-          <ThemeSwitcher />
 
-          {/* Carrito */}
+          {/* Botón de cambio de tema */}
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="rounded-lg border border-[var(--color-border-card)] bg-[var(--color-surface)] hover:bg-[var(--color-background)] px-3 py-1.5 text-sm text-[var(--color-on-surface)] transition-colors cursor-pointer"
+            title={isDarkMode ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+          >
+            {isDarkMode ? "🌞 Modo Claro" : "🌙 Modo Oscuro"}
+          </button>
+
+          {/* Botón Carrito */}
           <button
             onClick={onOpenPanel}
             className="relative px-4 py-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white text-sm font-semibold rounded-lg transition-colors flex items-center gap-2 cursor-pointer shadow-xs"
@@ -44,8 +54,8 @@ export function Navbar({ onOpenPanel, setVistaActual }) { // <-- Sin listCount p
               </span>
             )}
           </button>
-        </div>
 
+        </div>
       </div>
     </header>
   );

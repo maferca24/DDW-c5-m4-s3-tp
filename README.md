@@ -35,9 +35,10 @@ Navegación SPA: Basada en estados mediante la constante VISTAS.
 🤖 Uso de IA
 Utilicé asistencia de IA para:
 
-Refactorización de arquitectura (Context API y prompts para Kiro).
+Refactorización de arquitectura (Context API y prompts para Kiro) (Gemini).
 
 Implementación de reglas y manejo de campos condicionales en React Hook Form.
 
 Depuración de errores JSX y ajuste de la paleta de colores (naranja/gris).
 
+- Reestructuración de carpetas según los requerimientos del sprint.( Kiro)

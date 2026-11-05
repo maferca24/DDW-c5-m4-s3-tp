@@ -1,28 +1,22 @@
+import { useState } from "react";
 import { VISTAS } from "./data/vistas.js";
-
 import { Navbar } from "./components/layout/Navbar.jsx";
 import { CarritoModal } from "./components/CarritoModal";
-
-
 import { Tienda } from "./components/views/Tienda.jsx";
 import { Checkout } from "./components/views/Checkout.jsx";
-import { Confirmacion } from "./components/views/Confirmacion.jsx"
-
-import useToggle from "./hooks/useToogle";
-import useProductosList from "./hooks/useProductosList.js";
-import { useState } from "react";
+import { Confirmacion } from "./components/views/Confirmacion.jsx";
+import useToggle from "./hooks/useToggle";
 
 export default function App() {
-  const { list, total, toggle, clear } = useProductosList();
-  const [mostrarPanel, setMostrarPanel] = useToggle(false);//determina si el carrito esta abierto o <cerrado>
+  // Determina si el panel del carrito está abierto o cerrado
+  const [mostrarPanel, setMostrarPanel] = useToggle(false);
 
-  //Estado para controlar las vistas
+  // Estado para controlar la vista activa
   const [vistaActual, setVistaActual] = useState(VISTAS.TIENDA);
 
   // Nombre del comprador confirmado, se obtiene al finalizar el checkout
   const [nombreComprador, setNombreComprador] = useState("");
 
-  //Renderiza la vista según el estado
   const renderVista = () => {
     switch (vistaActual) {
       case VISTAS.CHECKOUT:
@@ -38,36 +32,30 @@ export default function App() {
             nombreComprador={nombreComprador}
             setVistaActual={setVistaActual}
           />
-        )
+        );
       case VISTAS.TIENDA:
       default:
-        return <Tienda list={list} toggle={toggle} />
+        return <Tienda />;
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-on-surface)] transition-colors flex flex-col">
       <Navbar
-        listCount={total}
         onOpenPanel={setMostrarPanel}
         setVistaActual={setVistaActual}
       />
 
       <main className="flex-1 py-6">
-        {/* Renderizado de la vista elegida */}
         {renderVista()}
       </main>
 
-      {/* Renderizado condicional del modal */}
       {mostrarPanel && (
         <CarritoModal
-          lista={list}
-          onToggle={toggle}
-          onVaciar={clear}
           onClose={() => setMostrarPanel(false)}
           onIrACheckout={() => {
-            setMostrarPanel(false); // Cerramos el modal del carrito
-            setVistaActual(VISTAS.CHECKOUT); // Cambiamos la vista a Checkout
+            setMostrarPanel(false);
+            setVistaActual(VISTAS.CHECKOUT);
           }}
         />
       )}
