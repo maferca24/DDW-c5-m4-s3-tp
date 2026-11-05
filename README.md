@@ -6,7 +6,7 @@ Aplicación web para la gestión de productos Sin TACC (libres de gluten), desar
 
 ## 🌐 Despliegue en Vivo
 
-👉 **[Ver proyecto en Netlify] https://curious-pie-dc137d.netlify.app/**
+👉 **[Ver proyecto en Netlify] https://tiendaproductossintacc.netlify.app**
 
 ---
 
